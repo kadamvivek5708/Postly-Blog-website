@@ -7,11 +7,11 @@ export class AuthService{
     client = new Client();
     account;
 
-    constructur(){
+    constructor(){
         this.client
             .setEndpoint(conf.appwriteUrl)
             .setProject(conf.appwriteProjectId);
-            this.account(new Account(this.client));
+            this.account = new Account(this.client);
     }
 
     async createAccount({email, password, name}){
@@ -42,9 +42,9 @@ export class AuthService{
             const status = await this.account.get();
             return status;
         } catch (error) {
-            throw error;
+            console.log( error );
+            return null;
         }
-        return null;
     }
 
     async logout(){

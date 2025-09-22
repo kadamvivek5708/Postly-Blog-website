@@ -21,7 +21,7 @@ function PostForm({post}) {
 
     const submit = async (data) => {
         if(post){
-            const file = data.image[0] ?appwriteService.uploadFile(data.image[0]) : null
+            const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null
 
             if(file){
                 appwriteService.deleteFile(post.featuredImage)
@@ -53,6 +53,7 @@ function PostForm({post}) {
         }
     }
 
+
     const slugTransform = useCallback((value) => {
         if(value && typeof value == 'string')
             return value
@@ -64,6 +65,7 @@ function PostForm({post}) {
         return ''
     },[])
 
+
     React.useEffect(() => {
         const subscription = watch((value,{name}) => {
             if(name === 'title'){
@@ -74,6 +76,7 @@ function PostForm({post}) {
 
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+
             <div className="w-2/3 px-2">
                 <Input
                     label="Title :"
@@ -92,6 +95,7 @@ function PostForm({post}) {
                 />
                 <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
+
             <div className="w-1/3 px-2">
                 <Input
                     label="Featured Image :"

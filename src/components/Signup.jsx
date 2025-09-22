@@ -7,15 +7,15 @@ import { useDispatch } from 'react-redux'
 import {useForm} from "react-hook-form"
 
 function Signup() {
-    const navigate = useNavigate;
-    const dispatch = useDispatch;
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [error,setError] = useState('');
     const {register,handleSubmit} = useForm();
 
     const create = async(data) =>{
-        setError("")
+        setError("");
         try {
-            const userData = await authService.createAccount(data)
+            const userData = await authService.createAccount(data);
             if (userData) {
                 const userData = await authService.getCurrentUser();
                 if (userData) {
@@ -46,28 +46,31 @@ function Signup() {
                     </Link>
                 </p>
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-                <form onSubmit={handleSubmit(login)} className='mt-8'>
+
+                <form onSubmit={handleSubmit(create)} className='mt-8'>
                     <div className='space-y-5'>
+
                         <Input 
-                        label="Email"
-                        placeholder="Enter your email"
-                        type="email"
-                        {...register("email"),{
-                            required:true,
-                            validate:{
-                                matchPattern:(value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                                "Email address must be a valid address",
-                            }
-                        }}
+                            label="Email"
+                            placeholder="Enter your email"
+                            type="email"
+                            {...register("email",{
+                                required:true,
+                                validate:{
+                                    matchPattern:(value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                                    "Email address must be a valid address",
+                                }
+                            })}
                         />
+                        {error.name && <span>Name is required</span>}
+
                         <Input 
-                        label="Name : "
-                        placeholder="Enter your name"
-                        type="text"
-                        {...register("name"),{
-                            required:true
-                        }}
+                            label="Name : "
+                            placeholder="Enter your name"
+                            type="text"
+                            {...register("name",{ required:true })}
                         />
+                        
                         <Input 
                             label="Password"
                             placeholder="Enter password"
@@ -76,12 +79,13 @@ function Signup() {
                                 required:true
                             })}
                         />
-                        <Button type="submit" className='w-full'>Sign in</Button>
+                        <Button type="submit" className='w-full'>Sign Up</Button>
                     </div>
                 </form>
+
             </div>
   </div>
   )
 }
 
-export default Signup
+export default Signup;

@@ -26,7 +26,7 @@ export default function Post() {
     const deletePost = () => {
         appwriteService.deletePost(post.$id).then((status) => {
             if (status) {
-                appwriteService.deleteFile(post.featuredImage);
+                appwriteService.deleteFile(post.featured_image);
                 navigate("/");
             }
         });
@@ -37,9 +37,9 @@ export default function Post() {
             <Container>
                 <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
                     <img
-                        src={appwriteService.getFilePreview(post.featuredImage)}
+                        src={appwriteService.getFileView(post.featured_image)}
                         alt={post.title}
-                        className="rounded-xl"
+                        className="rounded-xl w-full max-w-4xl h-96 object-contain"
                     />
 
                     {isAuthor && (

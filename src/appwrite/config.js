@@ -6,7 +6,7 @@ export class Service{
     databases;
     bucket;
 
-    constructur(){
+    constructor(){
         this.client
             .setEndpoint(conf.appwriteUrl)
             .setProject(conf.appwriteProjectId);
@@ -23,7 +23,7 @@ export class Service{
                 {
                 title,
                 content,
-                featuredImage,
+                featured_image: featuredImage,
                 status,
                 userId
                 }
@@ -42,7 +42,7 @@ export class Service{
                 {
                 title,
                 content,
-                featuredImage,
+                featured_image: featuredImage,
                 status
                 }
             )
@@ -73,8 +73,8 @@ export class Service{
             slug,
         )
         } catch (error) {
-            console.log(error);
-            return false
+            console.log("Failed to get post:",error);
+            throw error
         }
         
     }
@@ -94,22 +94,22 @@ export class Service{
 
     async uploadFile(file){
         try {
-            return await this.bucket.createFile((
+            return await this.bucket.createFile(
                 conf.appwriteBucketId,
                 ID.unique(),
                 file
-            ))
+            )
         } catch (error) {
             console.log(error);
             return false
         }
     }
 
-    async deleteFile(ID){
+    async deleteFile(fileId){
         try {
             await this.bucket.deleteFile(
                 conf.appwriteBucketId,
-                ID
+                fileId
             )
             return true;
         } catch (error) {
@@ -118,15 +118,16 @@ export class Service{
         }
     }
 
-    async filePreview(ID){
+    getFileView(fileId){
+        if (!fileId) return '';
         try {
-            return await this.bucket.getFilePreview(
-            conf.appwriteBucketId,
-            ID
-        )
+            return this.bucket.getFileView(
+                conf.appwriteBucketId,
+                fileId
+            );
         } catch (error) {
             console.log(error);
-            return false
+            return ''
         }
     }
 

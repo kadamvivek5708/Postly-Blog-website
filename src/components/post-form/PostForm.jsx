@@ -17,14 +17,14 @@ function PostForm({post}) {
         }
     })
 
-    const userData = useSelector(state => state.user.userData)
+    const userData = useSelector(state => state.auth.userData)
 
     const submit = async (data) => {
         if(post){
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null
 
             if(file){
-                appwriteService.deleteFile(post.featuredImage)
+                await appwriteService.deleteFile(post.featuredImage)
             }
             const dbPost = await appwriteService.updatePost(post.$id,{
                 ...data,
@@ -36,21 +36,23 @@ function PostForm({post}) {
             }
         }
         else{
-            const file= await appwriteService.uploadFile(
-                data.image[0]
-            );
-            if(file){
-                const fileId = file.$id;
-                data.featuredImage = fileId;
+            const file = data.image?.[0] ? await appwriteService.uploadFile(data.image[0]) : null;
+            
+            try {
                 const dbPost = await appwriteService.createPost({
                     ...data,
-                    userId: userData.$id, 
+                    featuredImage: file ? file.$id : null,
+                    userId: userData?.$id || "", 
                 });
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`)
                 }
+            } catch (error) {
+                console.error("Error creating post:", error);
             }
         }
+
+
     }
 
 
@@ -59,8 +61,8 @@ function PostForm({post}) {
             return value
                 .trim()
                 .toLowerCase()
-                .replace(/^[a-zA-Z\d\s]+/g, '-')
-                .replace(/\s/g, '-');
+                .replace(/[^a-z0-9-_]/g, '-') 
+                .slice(0, 36); 
 
         return ''
     },[])
@@ -71,7 +73,8 @@ function PostForm({post}) {
             if(name === 'title'){
                 setValue('slug',slugTransform(value.title,{shouldValidate:true}))
             }
-        })
+        });
+        return () => subscription.unsubscribe();
     },[watch,slugTransform,setValue])
 
   return (
@@ -107,7 +110,7 @@ function PostForm({post}) {
                 {post && (
                     <div className="w-full mb-4">
                         <img
-                            src={appwriteService.getFilePreview(post.featuredImage)}
+                            src={appwriteService.getFileView(post.featuredImage)}
                             alt={post.title}
                             className="rounded-lg"
                         />

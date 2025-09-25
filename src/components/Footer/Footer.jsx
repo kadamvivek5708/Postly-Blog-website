@@ -1,19 +1,18 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import Logo from '../Logo'
 
 function Footer() {
   return (
-    <section className="relative overflow-hidden py-10 bg-gray-400 border border-t-2 border-t-black">
+    <section className="relative overflow-hidden py-10 bg-[#19183B] text-white">
             <div className="relative z-10 mx-auto max-w-7xl px-4">
                 <div className="-m-6 flex flex-wrap">
                     <div className="w-full p-6 md:w-1/2 lg:w-5/12">
                         <div className="flex h-full flex-col justify-between">
                             <div className="mb-4 inline-flex items-center">
-                                <Logo width="100px" />
+                                <Logo alt="logo" width={150} height={120} />
                             </div>
                             <div>
-                                <p className="text-sm text-gray-600">
+                                <p className="text-sm text-gray-300">
                                     &copy; Copyright 2023. All Rights Reserved by DevUI.
                                 </p>
                             </div>
@@ -21,115 +20,60 @@ function Footer() {
                     </div>
                     <div className="w-full p-6 md:w-1/2 lg:w-2/12">
                         <div className="h-full">
-                            <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
+                            <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-300">
                                 Company
                             </h3>
                             <ul>
                                 <li className="mb-4">
-                                    <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                                        to="/"
-                                    >
-                                        Features
-                                    </Link>
+                                    <a className=" text-base font-medium text-gray-300 hover:text-gray-100" href="#">Features</a>
                                 </li>
                                 <li className="mb-4">
-                                    <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                                        to="/"
-                                    >
-                                        Pricing
-                                    </Link>
+                                    <a className=" text-base font-medium text-gray-300 hover:text-gray-100" href="#">Pricing</a>
                                 </li>
                                 <li className="mb-4">
-                                    <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                                        to="/"
-                                    >
-                                        Affiliate Program
-                                    </Link>
+                                    <a className=" text-base font-medium text-gray-300 hover:text-gray-100" href="#">Affiliate Program</a>
                                 </li>
                                 <li>
-                                    <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                                        to="/"
-                                    >
-                                        Press Kit
-                                    </Link>
+                                    <a className=" text-base font-medium text-gray-300 hover:text-gray-100" href="#">Press Kit</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div className="w-full p-6 md:w-1/2 lg:w-2/12">
                         <div className="h-full">
-                            <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
+                            <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-300">
                                 Support
                             </h3>
                             <ul>
                                 <li className="mb-4">
-                                    <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                                        to="/"
-                                    >
-                                        Account
-                                    </Link>
+                                    <a className=" text-base font-medium text-gray-300 hover:text-gray-100" href="#">Account</a>
                                 </li>
                                 <li className="mb-4">
-                                    <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                                        to="/"
-                                    >
-                                        Help
-                                    </Link>
+                                    <a className=" text-base font-medium text-gray-300 hover:text-gray-100" href="#">Help</a>
                                 </li>
                                 <li className="mb-4">
-                                    <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                                        to="/"
-                                    >
-                                        Contact Us
-                                    </Link>
+                                    <a className=" text-base font-medium text-gray-300 hover:text-gray-100" href="#">Contact Us</a>
                                 </li>
                                 <li>
-                                    <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                                        to="/"
-                                    >
-                                        Customer Support
-                                    </Link>
+                                    <a className=" text-base font-medium text-gray-300 hover:text-gray-100" href="#">Customer Support</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div className="w-full p-6 md:w-1/2 lg:w-3/12">
                         <div className="h-full">
-                            <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
+                            <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-300">
                                 Legals
                             </h3>
                             <ul>
                                 <li className="mb-4">
-                                    <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                                        to="/"
-                                    >
-                                        Terms &amp; Conditions
-                                    </Link>
+                                    <a className=" text-base font-medium text-gray-300 hover:text-gray-100" href="#">Terms &amp; Conditions</a>
                                 </li>
                                 <li className="mb-4">
-                                    <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                                        to="/"
-                                    >
-                                        Privacy Policy
-                                    </Link>
+                                    <a className=" text-base font-medium text-gray-300 hover:text-gray-100" href="#">Privacy Policy</a>
                                 </li>
                                 <li>
-                                    <Link
-                                        className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                                        to="/"
-                                    >
-                                        Licensing
-                                    </Link>
+                                    <a className=" text-base font-medium text-gray-300 hover:text-gray-100" href="#">Licensing</a>
                                 </li>
                             </ul>
                         </div>

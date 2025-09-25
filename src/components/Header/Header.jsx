@@ -25,8 +25,8 @@ function Header() {
         active: !authStatus,
     },
     {
-        name: "All Posts",
-        slug: "/all-posts",
+        name: "My Posts",
+        slug: "/my-posts",
         active: authStatus,
     },
     {
@@ -36,19 +36,19 @@ function Header() {
     },
   ]
   return (
-    <header className='py-3 shadow bg-gray-500'>
+    <header className='py-4 shadow-lg bg-primary backdrop-blur-sm bg-opacity-95'>
       <Container>
-        <nav className='flex'>
+        <nav className='flex items-center'>
           <div className='mr-4'>
             <Link to='/'>
             <Logo width='70px'/>
             </Link>
           </div>
-          <ul className='flex ml-auto'>
+          <ul className='flex ml-auto space-x-2'>
             {navItems.map((item) => (
               item.active ? 
                 (<li key={item.name}>
-                  <button onClick={() => navigate(item.slug)} className='inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'>
+                  <button onClick={() => navigate(item.slug)} className='inline-block px-6 py-3 duration-300 text-light hover:bg-secondary hover:text-primary rounded-full font-medium transition-all transform hover:scale-105'>
                     {item.name}
                   </button>
                 </li>) 

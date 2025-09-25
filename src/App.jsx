@@ -9,32 +9,18 @@ function App() {
   const [loading,setLoading] = useState(true);
   const dispatch =  useDispatch();
 
-  // useEffect(() => {
-  //   authService.getCurrentUser()
-  //       .then((userData) => {
-  //       if (userData) {
-  //         dispatch(login(userData))
-  //       }
-  //       else{
-  //         dispatch(logout())
-  //       }
-  //     })
-  //     .finally(() => setLoading(false))
-  // },[]);
-
-
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        // Try to get the current user session
+        
         const userData = await authService.getCurrentUser();
         if (userData) {
-          dispatch(login(userData)); // Logged in
+          dispatch(login(userData)); 
         } else {
-          dispatch(logout()); // No user
+          dispatch(logout()); 
         }
       } catch (err) {
-        // Handle unauthorized (guest) gracefully
+      
         if (err.message.includes("missing scopes") || err.code === 401) {
           dispatch(logout());
         } else {
@@ -48,7 +34,7 @@ function App() {
     checkAuth();
   }, [dispatch]);
 
-  return !loading ? (<div className="min-h-screen flex flex-wrap content-between bg-gray-200">
+  return !loading ? (<div className="min-h-screen flex flex-wrap content-between gradient-bg">
     <div className="w-full block">
       <Header/>
       <main>

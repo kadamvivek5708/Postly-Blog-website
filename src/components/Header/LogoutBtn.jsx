@@ -12,7 +12,7 @@ function LogoutBtn() {
     }
 
   return (
-    <button className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
+    <button className='inline-block px-6 py-3 duration-300 text-light hover:bg-secondary hover:text-primary rounded-full font-medium transition-all transform hover:scale-105'
     onClick={logoutHandler}>Logout</button>
   )
 }

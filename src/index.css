@@ -1,1 +1,49 @@
 @import "tailwindcss";
+
+/* Color Palette */
+:root {
+  --primary: #19183B;    /* Deep blue */
+  --secondary: #708993;  /* Light blue */
+  --accent: #A1C2BD;     /* Mint green */
+  --light: #E7F2EF;      /* Light cream/yellow */
+}
+
+/* Custom Background Classes */
+.bg-primary { background-color: var(--primary); }
+.bg-secondary { background-color: var(--secondary); }
+.bg-accent { background-color: var(--accent); }
+.bg-light { background-color: var(--light); }
+
+.text-primary { color: var(--primary); }
+.text-secondary { color: var(--secondary); }
+.text-accent { color: var(--accent); }
+.text-light { color: var(--light); }
+
+.border-primary { border-color: var(--primary); }
+.border-secondary { border-color: var(--secondary); }
+.border-accent { border-color: var(--accent); }
+.border-light { border-color: var(--light); }
+
+.hover\:bg-primary:hover { background-color: var(--primary); }
+.hover\:bg-secondary:hover { background-color: var(--secondary); }
+.hover\:bg-accent:hover { background-color: var(--accent); }
+.hover\:bg-light:hover { background-color: var(--light); }
+
+.from-primary { --tw-gradient-from: var(--primary); }
+.to-secondary { --tw-gradient-to: var(--secondary); }
+.via-accent { --tw-gradient-via: var(--accent); }
+
+/* Enhanced Styling */
+.card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(100, 127, 188, 0.1), 0 2px 4px -1px rgba(100, 127, 188, 0.06);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(100, 127, 188, 0.25), 0 10px 10px -5px rgba(100, 127, 188, 0.04);
+  transition: all 0.3s ease;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--light) 0%, var(--accent) 50%, var(--secondary) 100%);
+}

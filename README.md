@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Mega Blog
 
 This is a full-stack blogging platform built with React, Vite, and Appwrite. It allows users to create, read, update, and delete blog posts. The application features user authentication, a rich text editor for creating posts, and a responsive design.
@@ -30,23 +29,6 @@ This is a full-stack blogging platform built with React, Vite, and Appwrite. It 
 * Node.js and npm (or yarn) installed on your machine
 * An Appwrite account and project set up
 
-### Installation
-
-1.  Clone the repository:
-    ```bash
-    git clone [https://github.com/kadamvivek5708/mega_blog.git](https://github.com/kadamvivek5708/mega_blog.git)
-    ```
-2.  Navigate to the project directory:
-    ```bash
-    cd mega_blog
-    ```
-3.  Install the dependencies:
-    ```bash
-    npm install
-    ```
-4.  Create a `.env` file in the root directory and add your Appwrite configuration details, similar to the `.env.sample` file.
-5.  Start the development server:
-=======
 # Postly: A Modern Blog Website
 
 Postly is a feature-rich, modern blog application built with the MERN stack (MongoDB, Express.js, React, Node.js) and powered by Appwrite for its backend services. It provides a seamless and intuitive platform for users to create, manage, and share their content with the world.
@@ -98,12 +80,10 @@ To run the project locally, you will need to have Node.js and npm installed on y
     ```
 3.  Set up your Appwrite backend and create a `.env` file with your Appwrite credentials.
 4.  Start the development server:
->>>>>>> 024b28db704177e933a70153b7d25ff85299fa8f
+5.  
     ```bash
     npm run dev
     ```
-
-<<<<<<< HEAD
 ---
 
 ## Project Structure
@@ -135,4 +115,4 @@ The project is organized into the following directories:
 ## Conclusion
 
 Postly is a powerful and flexible blog application that provides a great user experience for both readers and writers. Its modern tech stack and well-structured codebase make it a great starting point for building your own blog or content-sharing platform.
->>>>>>> 024b28db704177e933a70153b7d25ff85299fa8f
+

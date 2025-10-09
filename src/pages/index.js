@@ -1,6 +1,6 @@
 import Home from './Home.jsx'
 import AddPost from './AddPost.jsx'
-import EditPost from './Editpost.jsx'
+import EditPost from './EditPost.jsx'
 import MyPosts from './MyPosts.jsx'
 import Login from './Login.jsx'
 import Post from './Post.jsx'

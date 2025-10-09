@@ -62,7 +62,12 @@ const router = createBrowserRouter([
         },
         {
             path: "/post/:slug",
-            element: <Post />,
+            // This is the key change to protect the route
+            element: (
+                <AuthLayout authentication>
+                    <Post />
+                </AuthLayout>
+            ),
         },
     ]
 }

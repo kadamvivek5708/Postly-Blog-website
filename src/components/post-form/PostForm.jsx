@@ -96,14 +96,13 @@ function PostForm({post}) {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
-                <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
 
             <div className="w-1/3 px-2">
                 <Input
                     label="Featured Image :"
                     type="file"
-                    className="mb-4"
+                    className="mb-4 "
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: !post })}
                 />
@@ -122,7 +121,13 @@ function PostForm({post}) {
                     className="mb-4"
                     {...register("status", { required: true })}
                 />
-                <Button type="submit" variant={post ? 'accent' : 'primary'} className="w-full">
+                {/* <Button type="submit" variant={post ? 'accent' : 'primary'} className="w-full">
+                    {post ? 'Update' : 'Submit'}
+                </Button> */}
+            </div>
+            <div className='w-full px-2'>
+                <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+                <Button type="submit" variant={post ? 'accent' : 'primary'} className="w-full mt-2">
                     {post ? 'Update' : 'Submit'}
                 </Button>
             </div>

@@ -6,14 +6,17 @@ import authService from '../../appwrite/auth'  // check here
 
 function LogoutBtn() {
     const dispatch = useDispatch();
-    const logoutHandler = () => {
-        authService.logout()
-        .then(() => dispatch(logout()))
-        .then(() => {
-            dispatch(logout());
+    const navigate = useNavigate();
+    const logoutHandler = async () => {
+        // Immediately update UI state
+        dispatch(logout());
+        try {
+            await authService.logout();
+        } catch (error) {
+            console.log("Logout Failed. Error: ", error);
+        } finally {
             navigate('/', { replace: true });
-        })
-        .catch((error) => console.log("Logout Failed. Error: ", error))
+        }
     }
 
   return (

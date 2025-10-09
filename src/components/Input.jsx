@@ -18,7 +18,7 @@ const Input = forwardRef(function Input({
         id={id}
         type={type}
         ref={ref}
-        className={`px-4 py-3 rounded-lg bg-white text-primary placeholder-secondary/70 outline-none focus:bg-light focus:ring-2 focus:ring-secondary transition-all duration-200 border border-accent/30 w-full ${className}`}
+        className={`px-4 py-3 rounded-lg bg-white text-primary placeholder-secondary/70 outline-none focus:bg-light focus:ring-2 focus:ring-secondary transition-all duration-200 border border-accent/30 w-full ${className} ${type === 'file' ? 'file:mr-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-accent file:text-primary hover:file:bg-accent/80' : ''}`}
         {...props}
       />
     </div>

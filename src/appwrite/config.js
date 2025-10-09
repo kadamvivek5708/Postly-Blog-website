@@ -65,18 +65,18 @@ export class Service{
         }
     }
 
+    // THIS IS THE NEW FUNCTION THAT WAS MISSING
     async getPost(slug){
         try {
             return await this.databases.getDocument(
-            conf.appwriteDatabaseId,
-            conf.appwriteCollectionId,
-            slug,
-        )
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug
+            );
         } catch (error) {
-            console.log("Failed to get post:",error);
-            throw error
+            console.log("Appwrite service :: getPost :: error", error);
+            return null;
         }
-        
     }
 
     async getPosts(queries = [Query.equal("status","active")]){
@@ -87,10 +87,12 @@ export class Service{
                 queries
             )
         } catch (error) {
-            console.log(error);
+            console.log("Appwrite service :: getPosts :: error", error);
             return false
         }
     }
+
+    // --- FILE UPLOAD SERVICE ---
 
     async uploadFile(file){
         try {
@@ -130,7 +132,6 @@ export class Service{
             return ''
         }
     }
-
 }
 
 const service = new Service()

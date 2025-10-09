@@ -1,0 +1,28 @@
+/* animations.css */
+
+/* Fade + slide down animation */
+@keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Fade + slide up animation */
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Utility classes for animations */
+  .animate-fade-slide-down { 
+    animation: fadeSlideDown 0.7s ease-out forwards; 
+  }
+  .animate-fade-slide-up { 
+    animation: fadeSlideUp 0.7s ease-out forwards; 
+  }
+  
+  /* Staggered delays */
+  .animation-delay-200 { animation-delay: 0.2s; }
+  .animation-delay-400 { animation-delay: 0.4s; }
+  .animation-delay-600 { animation-delay: 0.6s; }
+  .animation-delay-800 { animation-delay: 0.8s; }
+  
